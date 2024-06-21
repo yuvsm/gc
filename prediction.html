@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machine Failure Prediction</title>
+    <style>
+        /* General styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #c7ecee; /* Red-Orange background */
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Soft shadow */
+            border-radius: 12px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #2c3e50; /* Dark blue color for heading */
+        }
+        .form-container {
+            margin-top: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-bottom: 8px;
+            color: #2c3e50; /* Dark blue color for labels */
+        }
+        input, select {
+            margin-bottom: 16px;
+            padding: 12px;
+            font-size: 1em;
+            border: none;
+            border-radius: 6px;
+            box-shadow: 0 0 6px rgba(0, 0, 0, 0.1); /* Light shadow */
+        }
+        button {
+            padding: 14px;
+            font-size: 1em;
+            cursor: pointer;
+            background-color: #2ecc71; /* Emerald green button */
+            color: white;
+            border: none;
+            border-radius: 6px;
+            box-shadow: 0 4px 6px rgba(46, 204, 113, 0.3); /* Slight lift effect */
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #27ae60; /* Darker green on hover */
+        }
+        /* Styling for images */
+        .image-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+        .image-container img {
+            max-width: 45%;
+            border-radius: 12px;
+            box-shadow: 0 0 12px rgba(0, 0, 0, 0.1); /* Light shadow */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Machine Failure Probability</h1>
+        <div class="form-container">
+            <form action="{{ url_for('predict') }}" method="POST">
+                <label for="location">Location:</label>
+                <input type="text" id="location" name="location" required>
+
+                <label for="machine_age">Machine Age:</label>
+                <input type="number" id="machine_age" name="machine_age" required>
+
+                <label for="operating_hours">Operating Hours:</label>
+                <input type="number" id="operating_hours" name="operating_hours" required>
+
+                <label for="temperature">Temperature (°C):</label>
+                <input type="number" step="0.1" id="temperature" name="temperature" required>
+
+                <label for="pressure">Pressure (kPa):</label>
+                <input type="number" step="0.1" id="pressure" name="pressure" required>
+
+                <label for="vibration">Vibration (Hz):</label>
+                <input type="number" step="0.1" id="vibration" name="vibration" required>
+
+                <label for="last_maintenance_date">Last Maintenance Date:</label>
+                <input type="date" id="last_maintenance_date" name="last_maintenance_date" required>
+
+                <button type="submit">Predict</button>
+            </form>
+        </div>
+
+        <!-- Image section -->
+        <div class="image-container">
+            <img src="https://www.psuconnect.in/sdsdsd/ONGC_Eyes_Future_with_Oil_to_Chemical_Plants.jpg" alt="Refinery" width="400" height="300">
+            <img src="https://akm-img-a-in.tosshub.com/businesstoday/images/story/201603/brent_660_032816053207.jpg?size=948:533" alt="Offshore" width="400" height="300">
+        </div>
+    </div>
+</body>
+</html>
